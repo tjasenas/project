@@ -12,6 +12,14 @@ body {
     display: grid;
     grid-template-rows: 1fr auto;
 }
+
+/* card animation */
+
+@keyframes fadeInCard {
+    from { transform: translateY(-2rem); opacity: 0;}
+    to { transform: translateY(0); opacity: 1;}
+}
+
 .card {
     background-color: hsl(0, 0%, 100%);
     max-width: 260px;
@@ -20,10 +28,20 @@ body {
     text-align: center;
     justify-self: center;
     align-self: center;
+    animation-name: fadeInCard;
+    animation-duration: 1s;
 }
 .card__img {
-    max-width: 100%;
+    overflow: hidden;
     border-radius: 0.7rem;
+}
+.card__img img {
+    display: block;
+    max-width: 100%;
+    transition: transform .3s ease-in-out;
+}
+.card:hover .card__img img {
+    transform: scale(1.1);
 }
 .card__title {
     color: hsl(218, 44%, 22%);
@@ -38,3 +56,6 @@ body {
     text-align: center;
     padding: 1rem;
 }
+
+
+
